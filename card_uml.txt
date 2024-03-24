@@ -1,0 +1,84 @@
+@startuml
+
+class Card {
+  +int id
+  +string name
+  +string type
+  +string frameType
+  +string desc
+  +string race
+  +string archetype
+  +string ygoprodeck_url
+  +list<CardSet> card_sets
+  +list<CardImage> card_images
+  +list<CardPrice> card_prices
+  +list <MiscInfo> misc_info
+}
+
+class MonsterCard extends Card {
+  +int atk
+  +int def
+  +int level
+  +string attribute
+}
+
+class SpellCard extends Card {
+  +string property
+}
+
+class TrapCard extends Card {
+  +string property
+}
+
+class PendulumMonster extends MonsterCard {
+  +int scale
+}
+
+class LinkMonster extends MonsterCard {
+  +int linkval
+  +list<string> linkmarkers
+}
+
+class CardSet {
+  +string set_name
+  +string set_code
+  +string set_rarity
+  +string set_rarity_code
+  +string set_price
+  +list<int> card_ids
+}
+
+class CardImage {
+  +int id
+  +string image_url
+  +string image_url_small
+  +string image_url_cropped
+}
+
+class CardPrice {
+  +string cardmarket_price
+  +string tcgplayer_price
+  +string ebay_price
+  +string amazon_price
+  +string coolstuffinc_price
+}
+
+class MiscInfo {
+  +string beta_name
+  +int views
+  +int viewsweek
+  +int upvotes
+  +int downvotes
+  +list<string> formats
+  +date tcg_date
+  +date ocg_date
+  +int konami_id
+  +bool has_effect
+}
+
+Card o-- CardPrice
+Card o-- CardImage
+Card o-- CardSet
+Card o-- MiscInfo
+@enduml
+
