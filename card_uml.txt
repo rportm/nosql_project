@@ -1,5 +1,4 @@
 @startuml
-
 class Card {
   +int id
   +string name
@@ -45,7 +44,6 @@ class CardSet {
   +string set_rarity
   +string set_rarity_code
   +string set_price
-  +list<int> card_ids
 }
 
 class CardImage {
@@ -82,3 +80,23 @@ Card o-- CardSet
 Card o-- MiscInfo
 @enduml
 
+@startuml
+
+class CardImages{
+  ObjectId _id
+  String name
+  Binary image
+}
+@enduml
+
+@startuml
+
+class CardSet {
+  ObjectId _id
+  int num_of_cards
+  String set_code
+  String set_image
+  String set_name
+  Date tcg_date
+}
+@enduml
